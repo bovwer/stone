@@ -32,10 +32,10 @@ public class Main {
                     ParticipantService.printParticipants();
                     break;
                 case 3:
-                    Participant.printPrizeSchools();
+                    ParticipantService.printPrizeSchools();
                     break;
                 case 4:
-                    Participant.schoolWithMaxPrizes();
+                    ParticipantService.schoolWithMaxPrizes();
                     break;
                 case 5:
                     Participant.sortAndPrintFirstPlaceWinners();

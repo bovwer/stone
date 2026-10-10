@@ -35,4 +35,55 @@ public class ParticipantService {
             System.out.println(p);
         }
     }
+
+    public static void printPrizeSchools(){
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
+        System.out.println("\n Школы с призовыми местами (1, 2, 3 места)");
+        boolean found =false;
+        for (Participant p :  ParticipantService.participants) {
+            if (p.getPlace() >= 1 && p.getPlace() <=3) {
+                System.out.println("Школа №" + p.getSchoolNumber() +
+                        " Участник: " + p.getLastName() +
+                        " Место: " + p.getPlace());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Призовых мест не найдено");
+        }
+    }
+    public static void schoolWithMaxPrizes() {
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
+
+
+        int maxSchoolNum = 0;
+        for (Participant p :  ParticipantService.participants) {
+            if (p.getSchoolNumber() > maxSchoolNum) {
+                maxSchoolNum = p.getSchoolNumber();
+            }
+        }
+
+
+        int[] prizeCounts = new int[maxSchoolNum + 1];
+        for (Participant p :  ParticipantService.participants) {
+            if (p.getPlace() >= 1 && p.getPlace() <= 3) {
+                prizeCounts[p.getSchoolNumber()]++;
+            }
+        }
+
+        int bestSchool = -1;
+        int maxPrizes = 0;
+        for (int i = 0; i < prizeCounts.length; i++) {
+            if (prizeCounts[i] > maxPrizes) {
+                maxPrizes = prizeCounts[i];
+                bestSchool = i;
+            }
+        }
+
+        System.out.println("\n Школа с наибольшим числом призовых мест");
+        if (bestSchool != -1) {
+            System.out.println("Школа №" + bestSchool + " набрала больше всех призовых мест: " + maxPrizes);
+        }
+    }
+
 }
