@@ -92,7 +92,6 @@ public class Participant {
         }
     }
 
-
     public static void sortAndPrintFirstPlaceWinners() {
         if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
 
