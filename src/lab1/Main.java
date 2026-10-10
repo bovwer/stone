@@ -38,7 +38,7 @@ public class Main {
                     ParticipantService.schoolWithMaxPrizes();
                     break;
                 case 5:
-                    Participant.sortAndPrintFirstPlaceWinners();
+                    ParticipantService.sortAndPrintFirstPlaceWinners();
                     break;
                 case 6:
                     System.out.println("Программа завершена.");

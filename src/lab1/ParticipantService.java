@@ -85,5 +85,49 @@ public class ParticipantService {
             System.out.println("Школа №" + bestSchool + " набрала больше всех призовых мест: " + maxPrizes);
         }
     }
+    public static void sortAndPrintFirstPlaceWinners() {
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
+
+
+        int count = 0;
+        for (Participant p :  ParticipantService.participants) {
+            if (p.getPlace() == 1) {
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("\n Участников, занявших 1 место, нет.");
+            return;
+        }
+
+
+        Participant[] winners = new Participant[count];
+        int idx = 0;
+        for (Participant p :  ParticipantService.participants) {
+            if (p.getPlace() == 1) {
+                winners[idx++] = p;
+            }
+        }
+
+
+
+
+
+        for (int i = 0; i < winners.length - 1; i++) {
+            for (int j = 0; j < winners.length - 1 - i; j++) {
+                if (winners[j].getGrade() > winners[j + 1].getGrade()) {
+                    Participant temp = winners[j];
+                    winners[j] = winners[j + 1];
+                    winners[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("\nУчастники, занявшие 1-е место (отсортированы по классу)");
+        for (Participant p : winners) {
+            System.out.println("Класс: " + p.getGrade() + " | Участник: " + p.getLastName() + " (Школа №" + p.getSchoolNumber() + ")");
+        }
+    }
 
 }
