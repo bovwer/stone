@@ -10,8 +10,6 @@ public class Participant {
     private int place;
 
 
-
-
     public Participant(String lastName, int schoolNumber, int grade, int place) {
         setLastName(lastName);
         setSchoolNumber(schoolNumber);
