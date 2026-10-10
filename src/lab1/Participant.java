@@ -10,18 +10,6 @@ public class Participant {
     private int place;
 
 
-    public static Participant[] participants;
-
-    static {
-
-        participants = new Participant[]{
-                new Participant("Иванов", 12, 11, 1),
-                new Participant("Петров", 5, 10, 2),
-                new Participant("Сидоров", 12, 9, 3),
-                new Participant("Смирнов", 5, 11, 1),
-                new Participant("Кузнецов", 12, 10, 1),
-        };
-    }
 
 
     public Participant(String lastName, int schoolNumber, int grade, int place) {
@@ -107,27 +95,27 @@ public class Participant {
         Scanner scanner =new Scanner(System.in);
         System.out.print("Введите количество участников: ");
         int n = scanner.nextInt();
-        participants = new Participant[n];
+        ParticipantService.participants = new Participant[n];
         for (int i= 0; i<n; i++) {
             System.out.println("\n Ввод данных для участника №" + (i+1) + ":");
-            participants[i] = new Participant();
+            ParticipantService.participants[i] = new Participant();
         }
     }
     public static void printParticipants() {
-        if (participants == null || participants.length ==0){
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length ==0){
             System.out.println("Список участников пуст");
             return;
         }
         System.out.println("\n список всех участников олимпиады");
-        for (Participant p : participants){
+        for (Participant p :  ParticipantService.participants){
             System.out.println(p);
         }
     }
     public static void printPrizeSchools(){
-        if (participants == null || participants.length == 0) return;
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
         System.out.println("\n Школы с призовыми местами (1, 2, 3 места)");
         boolean found =false;
-        for (Participant p : participants) {
+        for (Participant p :  ParticipantService.participants) {
             if (p.getPlace() >= 1 && p.getPlace() <=3) {
                 System.out.println("Школа №" + p.getSchoolNumber() +
                         " Участник: " + p.getLastName() +
@@ -140,11 +128,11 @@ public class Participant {
         }
     }
     public static void schoolWithMaxPrizes() {
-        if (participants == null || participants.length == 0) return;
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
 
 
         int maxSchoolNum = 0;
-        for (Participant p : participants) {
+        for (Participant p :  ParticipantService.participants) {
             if (p.getSchoolNumber() > maxSchoolNum) {
                 maxSchoolNum = p.getSchoolNumber();
             }
@@ -152,7 +140,7 @@ public class Participant {
 
 
         int[] prizeCounts = new int[maxSchoolNum + 1];
-        for (Participant p : participants) {
+        for (Participant p :  ParticipantService.participants) {
             if (p.getPlace() >= 1 && p.getPlace() <= 3) {
                 prizeCounts[p.getSchoolNumber()]++;
             }
@@ -174,11 +162,11 @@ public class Participant {
     }
 
     public static void sortAndPrintFirstPlaceWinners() {
-        if (participants == null || participants.length == 0) return;
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
 
 
         int count = 0;
-        for (Participant p : participants) {
+        for (Participant p :  ParticipantService.participants) {
             if (p.getPlace() == 1) {
                 count++;
             }
@@ -192,7 +180,7 @@ public class Participant {
 
         Participant[] winners = new Participant[count];
         int idx = 0;
-        for (Participant p : participants) {
+        for (Participant p :  ParticipantService.participants) {
             if (p.getPlace() == 1) {
                 winners[idx++] = p;
             }
