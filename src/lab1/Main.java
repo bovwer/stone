@@ -38,6 +38,9 @@ public class Main {
                     Participant.schoolWithMaxPrizes();
                     break;
                 case 5:
+                    Participant.sortAndPrintFirstPlaceWinners();
+                    break;
+                case 6:
                     System.out.println("Программа завершена.");
                     break cycle;
                 default:
