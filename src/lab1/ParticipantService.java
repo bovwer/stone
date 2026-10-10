@@ -1,5 +1,7 @@
 package lab1;
 
+import java.util.Scanner;
+
 public class ParticipantService {
     public static Participant[] participants;
 
@@ -13,5 +15,14 @@ public class ParticipantService {
                 new Participant("Кузнецов", 12, 10, 1),
         };
     }
-
+    public static void fillParticipants() {
+        Scanner scanner =new Scanner(System.in);
+        System.out.print("Введите количество участников: ");
+        int n = scanner.nextInt();
+        ParticipantService.participants = new Participant[n];
+        for (int i= 0; i<n; i++) {
+            System.out.println("\n Ввод данных для участника №" + (i+1) + ":");
+            ParticipantService.participants[i] = new Participant();
+        }
+    }
 }

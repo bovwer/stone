@@ -26,7 +26,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    Participant.fillParticipants();
+                    ParticipantService.fillParticipants();
                     break;
                 case 2:
                     Participant.printParticipants();
