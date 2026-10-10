@@ -123,5 +123,20 @@ public class Participant {
             System.out.println(p);
         }
     }
-
+    public static void printPrizeSchools(){
+        if (participants == null || participants.length == 0) return;
+        System.out.println("\n Школы с призовыми местами (1, 2, 3 места)");
+        boolean found =false;
+        for (Participant p : participants) {
+            if (p.getPlace() >= 1 && p.getPlace() <=3) {
+                System.out.println("Школа №" + p.getSchoolNumber() +
+                        " Участник: " + p.getLastName() +
+                        " Место: " + p.getPlace());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Призовых мест не найдено");
+        }
+    }
 }
