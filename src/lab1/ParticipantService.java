@@ -129,5 +129,18 @@ public class ParticipantService {
             System.out.println("Класс: " + p.getGrade() + " | Участник: " + p.getLastName() + " (Школа №" + p.getSchoolNumber() + ")");
         }
     }
+    public static Participant findByLastName(String name) {
+        if (participants == null || participants.length == 0) {
+            System.out.println("Список участников пуст.");
+            return null;
+        }
+        for (Participant p : participants) {
+            if (p.getLastName().equalsIgnoreCase(name)) {
+                return p;
+            }
+        }
+        System.out.println("Участник с фамилией '" + name + "' не найден.");
+        return null;
+    }
 
 }
