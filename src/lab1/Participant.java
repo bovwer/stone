@@ -93,16 +93,8 @@ public class Participant {
     }
 
 
-    public static void printParticipants() {
-        if ( ParticipantService.participants == null ||  ParticipantService.participants.length ==0){
-            System.out.println("Список участников пуст");
-            return;
-        }
-        System.out.println("\n список всех участников олимпиады");
-        for (Participant p :  ParticipantService.participants){
-            System.out.println(p);
-        }
-    }
+
+
     public static void printPrizeSchools(){
         if ( ParticipantService.participants == null ||  ParticipantService.participants.length == 0) return;
         System.out.println("\n Школы с призовыми местами (1, 2, 3 места)");

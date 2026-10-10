@@ -25,4 +25,14 @@ public class ParticipantService {
             ParticipantService.participants[i] = new Participant();
         }
     }
+    public static void printParticipants() {
+        if ( ParticipantService.participants == null ||  ParticipantService.participants.length ==0){
+            System.out.println("Список участников пуст");
+            return;
+        }
+        System.out.println("\n список всех участников олимпиады");
+        for (Participant p :  ParticipantService.participants){
+            System.out.println(p);
+        }
+    }
 }

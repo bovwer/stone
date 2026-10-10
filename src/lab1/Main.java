@@ -29,7 +29,7 @@ public class Main {
                     ParticipantService.fillParticipants();
                     break;
                 case 2:
-                    Participant.printParticipants();
+                    ParticipantService.printParticipants();
                     break;
                 case 3:
                     Participant.printPrizeSchools();
