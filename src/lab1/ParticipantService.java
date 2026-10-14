@@ -129,6 +129,9 @@ public class ParticipantService {
             System.out.println("Класс: " + p.getGrade() + " | Участник: " + p.getLastName() + " (Школа №" + p.getSchoolNumber() + ")");
         }
     }
+
+
+
     public static Participant searchByLastName(String lastName) {
         System.out.println("Поиск участника в master: " + lastName);
         if (participants == null || participants.length == 0) {
